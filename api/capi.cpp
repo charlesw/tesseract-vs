@@ -67,6 +67,11 @@ TESS_API void TESS_CALL TessDeleteResultRenderer(TessResultRenderer* renderer)
     delete [] renderer;
 }
 
+TESS_API void TESS_CALL TessDeletePDFRenderer(TessResultRenderer* renderer)
+{
+	delete renderer;
+}
+
 TESS_API void TESS_CALL TessResultRendererInsert(TessResultRenderer* renderer, TessResultRenderer* next)
 {
     renderer->insert(next);
@@ -105,6 +110,16 @@ TESS_API const char* TESS_CALL TessResultRendererTitle(TessResultRenderer* rende
 TESS_API int TESS_CALL TessResultRendererImageNum(TessResultRenderer* renderer)
 {
     return renderer->imagenum();
+}
+
+TESS_API BOOL TESS_CALL TessPDFRendererBeginDocument(TessResultRenderer* renderer, const char* title)
+{
+	return renderer->BeginDocument(title);
+}
+
+TESS_API BOOL TESS_CALL TessPDFRendererEndDocument(TessResultRenderer* renderer)
+{
+	return renderer->EndDocument();
 }
 
 TESS_API TessBaseAPI* TESS_CALL TessBaseAPICreate()

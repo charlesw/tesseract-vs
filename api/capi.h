@@ -119,6 +119,10 @@ TESS_API const char* TESS_CALL TessResultRendererExtention(TessResultRenderer* r
 TESS_API const char* TESS_CALL TessResultRendererTitle(TessResultRenderer* renderer);
 TESS_API int TESS_CALL TessResultRendererImageNum(TessResultRenderer* renderer);
 
+TESS_API BOOL TESS_CALL TessPDFRendererBeginDocument(TessResultRenderer* renderer, const char* title);
+TESS_API BOOL TESS_CALL TessPDFRendererEndDocument(TessResultRenderer* renderer);
+TESS_API void TESS_CALL TessDeletePDFRenderer(TessResultRenderer* renderer);
+
 /* Base API */
 
 TESS_API TessBaseAPI*
